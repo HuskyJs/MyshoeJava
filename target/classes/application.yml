@@ -1,0 +1,47 @@
+server:
+  port: 8080
+spring:
+  application:
+    #应用的名称，可选
+    name: reggie_take_out
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: rqj
+  redis:
+    # Redis本地服务器地址，注意要开启redis服务，即那个redis-server.exe
+    host: 127.0.0.1
+    # Redis服务器端口,默认为6379.若有改动按改动后的来
+    port: 6379
+    #Redis服务器连接密码，默认为空，若有设置按设置的来
+    password:
+    jedis:
+      pool:
+        # 连接池最大连接数，若为负数则表示没有任何限制
+        max-active: 8
+        # 连接池最大阻塞等待时间，若为负数则表示没有任何限制
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 8
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+reggie:
+  path: D:\code\java\Spring\reggieWaimai\banben3.0\img\
+
+wxmini:
+  appid: 'wxe9d75482b1cef880'
+  secret: '369050cec54a672a8625ab62088b63bf'
